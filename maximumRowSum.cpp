@@ -14,6 +14,21 @@ int maxRowSum(int matrix[][3], int rows, int cols)
     }
     return maxsum;
 }
+int maxColSum(int matrix[][3], int rows, int cols)
+{
+    int maxsum = INT16_MIN;
+    for (int j = 0; j < 3; j++)
+    {
+        int sum = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            sum += matrix[i][j];
+        }
+        maxsum = max(maxsum, sum);
+    }
+    return maxsum;
+}
+
 int main()
 {
     int matrix[3][3] = {{100, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -26,5 +41,6 @@ int main()
         cout << endl;
     }
     cout << maxRowSum(matrix, 3, 3) << endl;
+    cout << maxColSum(matrix, 3, 3) << endl;
     return 0;
 }
